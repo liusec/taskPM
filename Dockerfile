@@ -3,18 +3,15 @@ FROM centos
 MAINTAINER Pyshen "pyshen@example.com"
 
 # yum update
-RUN yum -y update
+RUN yum -y update && yum -y install wget
 
 # install lib devel
 RUN yum install -y python-devel mysql-devel openldap-devel gcc && wget https://bootstrap.pypa.io/get-pip.py --no-check-certificate && python get-pip.py
 
 
 # create app web
-RUN mkdir -p /opt/webapp/ && mkdir -p ~/.pip/
+RUN mkdir -p /opt/webapp/
 ADD requirement.txt /opt/webapp/requirement.txt
-
-# create pip conf
-#ADD pip.conf ~/.pip/pip.conf
 
 
 # install python lib env
