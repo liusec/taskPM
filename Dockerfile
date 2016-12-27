@@ -24,8 +24,8 @@ WORKDIR /opt/webapp/
 RUN pip install --upgrade pip && pip install -r requirement.txt
 
 # modify lib env
-COPY taskPM/__init__.py /lib/python2.7/site-packages/flask_bootstrap/__init__.py
-COPY taskPM/datastructures.py /lib/python2.7/site-packages/werkzeug/datastructures.py
+COPY __init__.py /lib/python2.7/site-packages/flask_bootstrap/__init__.py
+COPY datastructures.py /lib/python2.7/site-packages/werkzeug/datastructures.py
 
 # open port
 EXPOSE 5000
